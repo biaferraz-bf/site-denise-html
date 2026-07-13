@@ -98,6 +98,10 @@
 
       var heroJob = function () {
         /* fim da cena = fim do runway do flow (como o cameraProgress da Vectr) */
+        if (window.scrollY < 100 && !window.heroJobLogged) {
+          console.log('[heroJob] Parallax job running! ScrollY:', window.scrollY);
+          window.heroJobLogged = true;
+        }
         var end = document.body.scrollHeight - window.innerHeight;
         if (flowEl && flowWrapEl) {
           end = flowEl.getBoundingClientRect().top + window.scrollY +
